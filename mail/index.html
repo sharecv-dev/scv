@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Beta App</h1>
+    <div class="tabs">
+      <div id="form-tab" class="tab" onclick="showContent('form')">Form</div>
+      <div id="data-tab" class="tab" onclick="showContent('data')">Data</div>
+      <div id="add-tab" class="tab" onclick="showContent('add')">Add</div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="content-container">
+      <div id="form" class="content">
+        <h2>Email Form</h2>
+        <input type="text" id="subject" placeholder="Nhập tiêu đề">
+        <iframe src="form.html"></iframe>
+        <select id="sendToType">
+          <option value="customer">Gửi tới Khách hàng</option>
+          <option value="applicant">Gửi tới Ứng viên</option>
+          <option value="collaborator">Gửi tới Cộng tác viên</option>
+          </select>
+          <div class="center">
+            <button onclick="sendEmail()">Send Email</button>
+          </div>
+      </div>
+      <div id="data" class="content">
+        <div class="sub-tab-container">
+          <div id="data-customer-tab" class="sub-tab active" onclick="showSubContent('data-customer')">Data Khách hàng</div>
+          <div id="data-applicant-tab" class="sub-tab" onclick="showSubContent('data-applicant')">Data Ứng viên</div>
+          <div id="data-collaborator-tab" class="sub-tab" onclick="showSubContent('data-collaborator')">Data Cộng tác viên</div>
+        </div>
+        <div id="data-customer" class="data-container">
+          <h2>Data Khách Hàng</h2>
+          <input type="text" id="customerSearch" placeholder="Search..." onkeyup="searchCustomers()">
+          <button onclick="deleteSelectedItems('customer')">Xóa</button>
+          <button onclick="deleteAllRows('Data Khách hàng')">Xóa toàn bộ</button>
+          <table id="customerTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="customerList">
+            </tbody>
+          </table>
+        </div>
+        <div id="data-applicant" class="data-container">
+          <h2>Data Ứng Viên</h2>
+          <input type="text" id="applicantSearch" placeholder="Search..." onkeyup="searchApplicants()">
+          <button onclick="deleteSelectedItems('applicant')">Xóa</button>
+          <button onclick="deleteAllRows('Data Ứng viên')">Xóa toàn bộ</button>
+          <table id="applicantTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="applicantList">
+            </tbody>
+          </table>
+        </div>
+        <div id="data-collaborator" class="data-container">
+          <h2>Data Cộng tác viên</h2>
+          <input type="text" id="collaboratorSearch" placeholder="Search..." onkeyup="searchCollaborators()">
+          <button onclick="deleteSelectedItems('collaborator')">Xóa</button>
+          <button onclick="deleteAllRows('Data Cộng tác viên')">Xóa toàn bộ</button>
+          <table id="collaboratorTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="collaboratorList">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="add" class="content">
+        <h2>Thêm Email</h2>
+        <select id="addType">
+          <option value="customer">Data Khách hàng</option>
+          <option value="applicant">Data Ứng viên</option>
+          <option value="collaborator">Data Cộng tác viên</option>
+        </select>
+        <input type="text" id="newEmail" placeholder="Email">
+        <div class="center">
+          <button onclick="addEmail()">Thêm Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="script.js"></script>
+</body>
+</html>

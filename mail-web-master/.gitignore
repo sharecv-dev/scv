@@ -1,0 +1,8 @@
+build
+composer.lock
+docs
+vendor
+coverage
+node_modules
+package-lock.json
+!/public/vendor
